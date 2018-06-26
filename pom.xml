@@ -26,6 +26,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
+        <es.djrunning.docker.repository>pumuky.cps.unizar.es/djrunning</es.djrunning.docker.repository>
+        <es.djrunning.docker.pluginVersion>1.4.3</es.djrunning.docker.pluginVersion>
+        <es.djrunning.vcs.url>https://github.com/SureSRM/ExampleProject</es.djrunning.vcs.url>
     </properties>
 
     <dependencies>
