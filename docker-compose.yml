@@ -2,16 +2,16 @@ version: '2'
 
 services:
   module1:
-    image: pumuky.cps.unizar.es/djrunning/djrunning-examplemodule1
+    image: ${REGISTRY}/djrunning-examplemodule1
     ports:
       - 8080:80
 
   module2:
-    image: pumuky.cps.unizar.es/djrunning/djrunning-examplemodule2
+    image: ${REGISTRY}/djrunning-examplemodule2
     ports:
       - 8081:80
 
   module3:
-    image: pumuky.cps.unizar.es/djrunning/djrunning-examplemodule3
+    image: ${REGISTRY}/djrunning-examplemodule3
     ports:
       - 8082:80

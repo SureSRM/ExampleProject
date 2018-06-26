@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  module1:
+    build: exampleModule1
+
+  module2:
+    build: exampleModule2
+
+  module3:
+    build: exampleModule3
