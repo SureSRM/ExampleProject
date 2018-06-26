@@ -20,6 +20,30 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${es.djrunning.docker.pluginVersion}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <repository>${es.djrunning.docker.repository}/${project.artifactId}</repository>
+                            <tag>latest</tag>
+                            <buildArgs>
+                          	     <APP_NAME>${project.artifactId}-${project.version}.jar</APP_NAME>
+                          	     <APP_NAME>${project.artifactId}</APP_NAME>
+                                 <APP_VERSION>${project.version}</APP_VERSION>
+                          	     <IMAGE_REPO>${es.djrunning.vcs.url}</IMAGE_REPO>
+                          	</buildArgs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
