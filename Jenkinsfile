@@ -22,6 +22,7 @@ pipeline {
 
     stage('build-images') {
       steps {
+        sh "docker version"
         sh "./mvnw package -DskipTests"
       }
     }
