@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('build-jar') {
       steps {
-        sh "./mvnw package -DskipTests -Ddockerfile.skip"
+        sh "./mvn package -DskipTests -Ddockerfile.skip"
       }
     }
 
