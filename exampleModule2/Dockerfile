@@ -20,8 +20,15 @@ WORKDIR /app
 # Copy uber-jar. NOTE: If failing, check out .dockerignore
 COPY target/*.jar /app/app.jar
 
+# Overrides server.port spring property and fixes it to :80.
+#It can be overwriten by setting a new value in `docker run` o `docker-compose.yml`
+ENV SERVER_PORT 80
 # Documents wich port should be exposed
 EXPOSE 80
 
-# Defines the command that will be executed as PID 0 when container is started 
+# Add healthcheck
+HEALTHCHECK --interval=5s --timeout=3s \
+  CMD wget --spider http://localhost || exit 1
+
+# Defines the command that will be executed as PID 0 when container is started
 ENTRYPOINT ["/usr/bin/java", "-jar", "/app/app.jar"]
