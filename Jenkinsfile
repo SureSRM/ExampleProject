@@ -5,7 +5,9 @@ pipeline {
   //     reuseNode true
   //   }
   // }
-  agent any
+  agent {
+    label 'docker'
+  }
 
   stages {
     stage('build-jar') {
