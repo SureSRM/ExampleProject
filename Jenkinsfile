@@ -20,18 +20,18 @@ pipeline {
       }
     }
 
-    stage('build-images') {
-      steps {
-        sh "docker version"
-        sh "./mvnw package -DskipTests"
-      }
-    }
-
-    stage('integration-test') {
-      steps {
-        sh "docker-compose version"
-      }
-    }
+    // stage('build-images') {
+    //   steps {
+    //     sh "docker version"
+    //     sh "./mvnw package -DskipTests"
+    //   }
+    // }
+    //
+    // stage('integration-test') {
+    //   steps {
+    //     sh "docker-compose version"
+    //   }
+    // }
 
     // stage('deploy') {
     //   agent {
@@ -51,9 +51,9 @@ pipeline {
 
   }
 
-  post {
-    always {
-      sh "echo --end--"
-    }
-  }
+  // post {
+  //   always {
+  //     sh "echo --end--"
+  //   }
+  // }
 }
