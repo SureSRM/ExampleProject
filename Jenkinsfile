@@ -1,10 +1,10 @@
 pipeline {
-  // agent {
-  //   docker {
-  //     image "maven:3.5.0-jdk-8-alpine"
-  //     reuseNode true
-  //   }
-  // }
+
+  environment {
+    SONAR_HOST = 'https://pumuky.cps.unizar.es:4444/sonar'
+    SONAR_TOKEN = credentials('sonar-token')
+  }
+
   agent {
     label 'docker'
   }
@@ -19,6 +19,12 @@ pipeline {
     stage('unit-test') {
       steps {
         sh "./mvnw test"
+      }
+    }
+
+    stage('code-analysis') {
+      steps {
+        sh "./mvnw sonar:sonar -Dsonar.host.url=${SONAR_HOST} -Dsonar.login=${SONAR_TOKEN}"
       }
     }
 
